@@ -101,6 +101,8 @@ function setup() {
  * uitgevoerd door de p5 library, nadat de setup functie klaar is
  */
 function draw() {
+  rect(200,520,100,200)
+  rect(400,320,100,400)
   if (spelStatus === SPELEN) {
     beweegAlles();
     verwerkBotsing();
@@ -114,4 +116,3 @@ function draw() {
 
   }
 }
-
