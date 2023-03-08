@@ -63,7 +63,7 @@ var tekenAlles = function() {
 
   // speler
   fill("white");
-  ellipse(MouseX, mouseY, 50, 50);
+  ellipse(50, 50, 50, 50);
   
   // punten en health
 
