@@ -63,10 +63,8 @@ var tekenAlles = function() {
 
   // speler
   fill("white");
-  rect(spelerX - 25, spelerY - 25, 50, 50);
-  fill("black");
-  ellipse(spelerX, spelerY, 10, 10);
-
+  ellipse(MouseX, mouseY, 50, 50);
+  
   // punten en health
 
 };
@@ -116,3 +114,4 @@ function draw() {
 
   }
 }
+

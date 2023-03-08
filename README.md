@@ -18,3 +18,19 @@ https://emmauscollege.github.io/informatica/game/
 - icon <br>
         http://www.iconarchive.com/show/android-lollipop-icons-by-dtafalonso/Play-Games-icon.html
 - ...
+FLAPPY
+
+DEEL 1
+a. teken flappy als balletje
+b. flappy valt omlaag
+c. als je op de toets drukt dan gaat flappy een stpaje omhoog
+d. als je beneden ben dan ben je dood
+e er komt een balk onder
+f de balk beweegt
+g als poppetje balk raakt dan is ie dood
+h als balk weg is dan komt er een nieuwe balk
+
+
+
+
+maak flappy een image in plaats van balletje
