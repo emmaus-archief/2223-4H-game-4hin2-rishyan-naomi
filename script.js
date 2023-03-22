@@ -22,6 +22,7 @@ var spelStatus = SPELEN;
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 
+
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
@@ -43,11 +44,10 @@ var beweegAlles = function() {
  * Updatet globale variabelen punten en health
  */
 var verwerkBotsing = function() {
-  // botsing speler tegen vijand
-
-  // botsing kogel tegen vijand
-
-  // update punten en health
+  // botsing speler tegen constructie
+var spelerX = 600
+  var spelerY = 600
+  // update punten
 
 };
 
@@ -60,10 +60,10 @@ var tekenAlles = function() {
   // vijand
 
   // kogel
-
-  // speler
-  fill("white");
   ellipse(50, 50, 50, 50);
+  // speler
+  fill("red");
+
   
   // punten en health
 

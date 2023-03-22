@@ -21,7 +21,8 @@ https://emmauscollege.github.io/informatica/game/
 FLAPPY
 
 DEEL 1
-a. teken flappy als balletje
+a. teken flappy als balletje........ Check
+  a2.  Background ref A2
 b. flappy valt omlaag
 c. als je op de toets drukt dan gaat flappy een stpaje omhoog
 d. als je beneden ben dan ben je dood
@@ -32,5 +33,5 @@ h als balk weg is dan komt er een nieuwe balk
 
 
 
-
-maak flappy een image in plaats van balletje
+Hoihoi, Ik heb deze les geen kut gedaan dus sorry.
+Goetjes Rishyan
