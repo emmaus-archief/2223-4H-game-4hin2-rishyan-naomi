@@ -19,8 +19,10 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
-var spelerX = 600; // x-positie van speler
-var spelerY = 600; // y-positie van speler
+var spelerX = 100; // x-positie van speler
+var spelerY = 200; // y-positie van speler
+var vijandX = 520;
+var vijandY = 600;
 
 
 /* ********************************************* */
@@ -32,7 +34,18 @@ var spelerY = 600; // y-positie van speler
  */
 var beweegAlles = function() {
   // speler
-
+  if (keyIsDown(65)){
+    spelerX = spelerX -1;
+  }
+  if (keyIsDown(87)){
+    spelerY = spelerY -1;
+  }
+  if (keyIsDown(83)){
+    spelerY = spelerY +1;
+  }
+  if (keyIsDown(68)){
+    spelerX = spelerX +1;
+  }
   // vijand
 
   // kogel
@@ -45,8 +58,9 @@ var beweegAlles = function() {
  */
 var verwerkBotsing = function() {
   // botsing speler tegen constructie
-var spelerX = 600
-  var spelerY = 600
+  if (spelerX === vijandX && spelerY === vijandY) {
+    console.log('Botsing');
+  }
   // update punten
 
 };
@@ -56,13 +70,16 @@ var spelerX = 600
  */
 var tekenAlles = function() {
   // achtergrond
-
+fill('Green');
+  rect(0,0,1280,720)
   // vijand
-
+fill('red')
+  rect(vijandX - 0,vijandY - 0,100,200)
+  rect(vijandX - 200,vijandY - 200,100,400)
   // kogel
-  ellipse(50, 50, 50, 50);
   // speler
-  fill("red");
+  fill('blue')
+  ellipse(spelerX-25, spelerY-25, 50, 50);
 
   
   // punten en health
@@ -101,8 +118,6 @@ function setup() {
  * uitgevoerd door de p5 library, nadat de setup functie klaar is
  */
 function draw() {
-  rect(200,520,100,200)
-  rect(400,320,100,400)
   if (spelStatus === SPELEN) {
     beweegAlles();
     verwerkBotsing();
