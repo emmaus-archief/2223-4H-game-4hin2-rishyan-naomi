@@ -19,7 +19,7 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
-var spelerX = 100; // x-positie van speler
+var spelerX = 600; // x-positie van speler
 var spelerY = 200; // y-positie van speler
 var vijandX = 520;
 var vijandY = 600;
@@ -34,18 +34,13 @@ var vijandY = 600;
  */
 var beweegAlles = function() {
   // speler
-  if (keyIsDown(65)){
-    spelerX = spelerX -1;
+ 
+  if (keyIsDown(32)){
+    spelerY = spelerY -10;  }
+  else{
+    spelerY = spelerY +5
   }
-  if (keyIsDown(87)){
-    spelerY = spelerY -1;
-  }
-  if (keyIsDown(83)){
-    spelerY = spelerY +1;
-  }
-  if (keyIsDown(68)){
-    spelerX = spelerX +1;
-  }
+ 
   // vijand
 
   // kogel
