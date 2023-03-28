@@ -19,7 +19,7 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 
-var spelerX = 600; // x-positie van speler
+var spelerX = 520; // x-positie van speler
 var spelerY = 200; // y-positie van speler
 var vijandX = 520;
 var vijandY = 600;
@@ -53,6 +53,7 @@ var beweegAlles = function() {
  */
 var verwerkBotsing = function() {
   // botsing speler tegen constructie
+  console.log("sX:", spelerX, "vX",vijandX);
   if (spelerX === vijandX && spelerY === vijandY) {
     console.log('Botsing');
   }
