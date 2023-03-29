@@ -40,9 +40,9 @@ var beweegAlles = function() {
   toetsnet = toetsnu;
   toetsnu = keyIsDown(32);
   if (toetsnet === false && toetsnu === true){
-    spelerY = spelerY -30;  }
+    spelerY = spelerY -40;  }
   else{
-    spelerY = spelerY +2
+    spelerY = spelerY +4
   } 
 
   if(
