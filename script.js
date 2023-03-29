@@ -40,7 +40,7 @@ var beweegAlles = function() {
   toetsnet = toetsnu;
   toetsnu = keyIsDown(32);
   if (toetsnet === false && toetsnu === true){
-    spelerY = spelerY -40;  }
+    spelerY = spelerY -70;  }
   else{
     spelerY = spelerY +4
   } 
