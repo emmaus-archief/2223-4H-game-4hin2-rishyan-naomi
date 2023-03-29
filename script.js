@@ -24,6 +24,9 @@ var spelerY = 200; // y-positie van speler
 var vijandX = 520;
 var vijandY = 600;
 
+var toetsnu = false;
+var toetsnet = false;
+
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -34,11 +37,12 @@ var vijandY = 600;
  */
 var beweegAlles = function() {
   // speler
- 
-  if (keyIsDown(32)){
-    spelerY = spelerY -10;  }
+  toetsnet = toetsnu;
+  toetsnu = keyIsDown(32);
+  if (toetsnet === false && toetsnu === true){
+    spelerY = spelerY -30;  }
   else{
-    spelerY = spelerY +5
+    spelerY = spelerY +2
   } 
 
   if(
