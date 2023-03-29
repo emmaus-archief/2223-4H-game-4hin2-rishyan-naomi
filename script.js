@@ -39,7 +39,15 @@ var beweegAlles = function() {
     spelerY = spelerY -10;  }
   else{
     spelerY = spelerY +5
+  } 
+
+  if(
+    spelerY < 50 ||
+    spelerY > 720
+    ){
+    spelStatus = GAMEOVER;
   }
+  
  
   // vijand
 
@@ -54,7 +62,10 @@ var beweegAlles = function() {
 var verwerkBotsing = function() {
   // botsing speler tegen constructie
   console.log("sX:", spelerX, "vX",vijandX);
-  if (spelerX === vijandX && spelerY === vijandY) {
+  if (spelerX - vijandX <50
+      &&spelerX - vijandX <-50
+      && spelerY - vijandY<50
+     && spelerY - vijandY<-50 ) {
     console.log('Botsing');
   }
   // update punten

@@ -23,9 +23,9 @@ FLAPPY
 DEEL 1
 a. teken flappy als balletje........ Check
   a2.  Background ref A2
-b. flappy valt omlaag
-c. als je op de toets drukt dan gaat flappy een stpaje omhoog
-d. als je beneden ben dan ben je dood
+b. flappy valt omlaag................check
+c. als je op de toets drukt dan gaat flappy een stpaje omhoog......... check
+d. als je beneden ben dan ben je dood.................................. check
 e er komt een balk onder
 f de balk beweegt
 g als poppetje balk raakt dan is ie dood
