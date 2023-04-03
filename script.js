@@ -137,6 +137,13 @@ function draw() {
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
-
+console.log('Game Over, Druk op A voor nieuwe game.');
+    textSize(50);
+    fill('white');
+    text('Game over, Druk op A voor een nieuwe spel',100,100);
+    if (keyIsDown(65)){
+      spelerY = 200;
+      spelStatus = SPELEN;
+    }
   }
 }
