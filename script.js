@@ -27,6 +27,7 @@ var vijandY = 600;
 var toetsnu = false;
 var toetsnet = false;
 
+var img = 200; //plaatje
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -80,11 +81,12 @@ var verwerkBotsing = function() {
  */
 var tekenAlles = function() {
   // achtergrond
-  fill('Green');
-  rect(0, 0, 1280, 720)
+  image(img,0,0,1500,750);
   // vijand
   fill('black')
-  rect(vijandX - 0, vijandY - 0, 100, 200)
+  rect(vijandX - 0,vijandY - 0,100,200)
+  rect(vijandX - 200,vijandY - 200,100,400)
+  rect(vijandX - 400, vijandY - 300,100,600)
   // kogel
   // speler
   fill('blue')
@@ -108,6 +110,16 @@ var checkGameOver = function() {
 /* setup() en draw() functies / hoofdprogramma   */
 /* ********************************************* */
 
+
+/**
+* preload
+* deze functie wordt 1x uitgevoerd voor set up 
+* we laden hier de plaatjes
+ */
+
+function preload() {
+img = loadImage('flappybird.png') 
+}
 /**
  * setup
  * de code in deze functie wordt één keer uitgevoerd door
