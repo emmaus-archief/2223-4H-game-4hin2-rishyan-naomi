@@ -35,3 +35,5 @@ h als balk weg is dan komt er een nieuwe balk
 
 Hoihoi, Ik heb deze les geen kut gedaan dus sorry.
 Goetjes Rishyan
+
+test
