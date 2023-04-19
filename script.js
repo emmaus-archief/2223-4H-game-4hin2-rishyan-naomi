@@ -23,11 +23,12 @@ var spelerX = 430; // x-positie van speler
 var spelerY = 200; // y-positie van speler
 var vijandX = 430;
 var vijandY = 600;
+var vijandSnelheid = 3; // snelheid van de vijand
 
 var toetsnu = false;
 var toetsnet = false;
 
-var img = 200; //plaatje
+var img; //plaatje
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -54,8 +55,12 @@ var beweegAlles = function() {
     spelStatus = GAMEOVER;
   }
 
-
   // vijand
+  vijandX = vijandX - vijandSnelheid;
+  if (vijandX < -100) {
+    vijandX = 1280; // reset de x-positie van de vijand als hij buiten het scherm verdwijnt
+    vijandY = random(100, 500); // randomize de y-positie van de vijand
+  }
 
   // kogel
 };
@@ -66,14 +71,12 @@ var beweegAlles = function() {
  * Updatet globale variabelen punten en health
  */
 var verwerkBotsing = function() {
-  // botsing speler tegen constructie
-  console.log("sX:", spelerX, "vX", vijandX);
-  if (vijandX - spelerX < 10
-    && vijandY - spelerY < 10) {
-    console.log('Botsing');
+  // botsing speler tegen vijand
+  if (vijandX - spelerX < 10 &&
+    vijandY - spelerY < 10 &&
+    spelerY - vijandY < 180) { // checkt of de speler binnen de hoogte van de vijand is
+    spelStatus = GAMEOVER;
   }
-  // update punten
-
 };
 
 /**
@@ -81,81 +84,60 @@ var verwerkBotsing = function() {
  */
 var tekenAlles = function() {
   // achtergrond
-  image(img,0,0,1500,750);
+  image(img, 0, 0, 1500, 750);
   // vijand
   fill('black')
-  rect(vijandX - 0,vijandY - 0,100,200)
-  rect(vijandX - 200,vijandY - 200,100,400)
-  rect(vijandX - 400, vijandY - 300,100,600)
+  rect(vijandX - 0, vijandY - 0, 100, 200)
+  rect(vijandX - 200, vijandY - 200, 100, 400)
+  rect(vijandX - 400, vijandY - 300, 100, 600)
   // kogel
   // speler
   fill('blue')
-  ellipse(spelerX - 25, spelerY - 25, 50, 50);
-
-
-  // punten en health
-
+  ellipse (spelerX, spelerY, 40, 40); // teken de speler als een blauwe cirkel
+textSize(30);
+fill('white');
+text("Score: ", 20, 40); // toon de score op het scherm
 };
 
 /**
- * return true als het gameover is
- * anders return false
- */
-var checkGameOver = function() {
-  // check of HP 0 is , of tijd op is, of ...
-  return false;
+
+Reset de game na een gameover
+*/
+var resetGame = function() {
+spelerX = 430; // reset de x-positie van de speler
+spelerY = 200; // reset de y-positie van de speler
+vijandX = 430; // reset de x-positie van de vijand
+vijandY = 600; // reset de y-positie van de vijand
+spelStatus = SPELEN; // reset de spelstatus naar SPELEN
 };
-
-/* ********************************************* */
-/* setup() en draw() functies / hoofdprogramma   */
-/* ********************************************* */
-
-
-/**
-* preload
-* deze functie wordt 1x uitgevoerd voor set up 
-* we laden hier de plaatjes
- */
+/* ********************************************* /
+/ functies van de p5 library /
+/ ********************************************* */
 
 function preload() {
-img = loadImage('flappybird.png') 
+img = loadImage('achtergrond.png'); // laad de achtergrond afbeelding
 }
-/**
- * setup
- * de code in deze functie wordt één keer uitgevoerd door
- * de p5 library, zodra het spel geladen is in de browser
- */
+
 function setup() {
-  // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
-  createCanvas(1280, 720);
-
-  // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('blue');
+createCanvas(1280, 720); // maak een canvas van 960 x 540 pixels
+frameRate(60); // zet de framesnelheid op 60 frames per seconde
 }
 
-/**
- * draw
- * de code in deze functie wordt 50 keer per seconde
- * uitgevoerd door de p5 library, nadat de setup functie klaar is
- */
 function draw() {
-  if (spelStatus === SPELEN) {
-    beweegAlles();
-    verwerkBotsing();
-    tekenAlles();
-    if (checkGameOver()) {
-      spelStatus = GAMEOVER;
-    }
-  }
-  if (spelStatus === GAMEOVER) {
-    // teken game-over scherm
-console.log('Game Over, Druk op A voor nieuwe game.');
-    textSize(50);
-    fill('white');
-    text('Game over, Druk op A voor een nieuwe spel',100,100);
-    if (keyIsDown(65)){
-      spelerY = 200;
-      spelStatus = SPELEN;
-    }
-  }
+if (spelStatus === SPELEN) {
+beweegAlles(); // update de posities van speler, vijanden en kogels
+verwerkBotsing(); // check op botsingen
+tekenAlles(); // teken het spelscherm
+} else if (spelStatus === GAMEOVER) {
+textSize(60);
+fill('white');
+textAlign(CENTER, CENTER);
+text("GAME OVER, Druk op enter", width / 2, height / 2); // toon GAME OVER tekst in het midden van het scherm
+}
+}
+
+function keyPressed() {
+if (keyCode === ENTER && spelStatus === GAMEOVER) {
+resetGame(); // reset de game bij het indrukken van de ENTER toets na een gameover
+}
 }
