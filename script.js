@@ -22,7 +22,10 @@ var spelStatus = SPELEN;
 var spelerX = 430; // x-positie van speler
 var spelerY = 200; // y-positie van speler
 var vijandX = 430;
-var vijandY = 600;
+var vijandY0 = 600;
+var vijandY1 = 400;
+var vijandY2 = 200;
+var vijandY = [600,400,200];
 var vijandSnelheid = 3; // snelheid van de vijand
 
 var toetsnu = false;
@@ -59,7 +62,9 @@ var beweegAlles = function() {
   vijandX = vijandX - vijandSnelheid;
   if (vijandX < -100) {
     vijandX = 1280; // reset de x-positie van de vijand als hij buiten het scherm verdwijnt
-    vijandY = random(100, 500); // randomize de y-positie van de vijand
+    vijandY0 = random(100, 500); // randomize de y-positie van de vijand
+    vijandY1 = random(100, 500); // randomize de y-positie van de vijand
+    vijandY2 = random(100, 500); // randomize de y-positie van de vijand
   }
 
   // kogel
@@ -73,8 +78,8 @@ var beweegAlles = function() {
 var verwerkBotsing = function() {
   // botsing speler tegen vijand
   if (vijandX - spelerX < 10 &&
-    vijandY - spelerY < 10 &&
-    spelerY - vijandY < 180) { // checkt of de speler binnen de hoogte van de vijand is
+    vijandY0 - spelerY < 10 &&
+    spelerY - vijandY0 < 180) { // checkt of de speler binnen de hoogte van de vijand is
     spelStatus = GAMEOVER;
   }
 };
@@ -87,9 +92,9 @@ var tekenAlles = function() {
   image(img, 0, 0, 1500, 750);
   // vijand
   fill('black')
-  rect(vijandX - 0, vijandY - 0, 100, 200)
-  rect(vijandX - 200, vijandY - 200, 100, 400)
-  rect(vijandX - 400, vijandY - 300, 100, 600)
+  rect(vijandX - 0, vijandY0 , 100, 720)
+  rect(vijandX - 200, vijandY1 , 100, 720)
+  rect(vijandX - 400, vijandY2 , 100, 720)
   // kogel
   // speler
   fill('blue')
