@@ -25,6 +25,8 @@ var vijandX = 430;
 var vijandY0 = 600;
 var vijandY1 = 400;
 var vijandY2 = 200;
+var vijandY3 = 800;
+var vijandY4 = 100;
 var vijandY = [600,400,200];
 var vijandSnelheid = 3; // snelheid van de vijand
 
@@ -61,10 +63,12 @@ var beweegAlles = function() {
   // vijand
   vijandX = vijandX - vijandSnelheid;
   if (vijandX < -100) {
-    vijandX = 1280; // reset de x-positie van de vijand als hij buiten het scherm verdwijnt
+    vijandX = 800; // reset de x-positie van de vijand als hij buiten het scherm verdwijnt
     vijandY0 = random(100, 500); // randomize de y-positie van de vijand
     vijandY1 = random(100, 500); // randomize de y-positie van de vijand
     vijandY2 = random(100, 500); // randomize de y-positie van de vijand
+    vijandY3 = random(100, 500);  // randomize de y-positie van de vijand
+    vijandY4 = random(100, 500);  // randomize de y-positie van de vijand
   }
 
   // kogel
@@ -77,9 +81,30 @@ var beweegAlles = function() {
  */
 var verwerkBotsing = function() {
   // botsing speler tegen vijand
-  if (vijandX - spelerX < 10 &&
-    vijandY0 - spelerY < 10 &&
-    spelerY - vijandY0 < 180) { // checkt of de speler binnen de hoogte van de vijand is
+  if (vijandX - spelerX > -10 &&
+    vijandX - spelerX < 10 &&
+    spelerY - vijandY0 >0) { // checkt of de speler binnen de hoogte van de vijand is
+    spelStatus = GAMEOVER;
+  }
+  if (vijandX -200 - spelerX > -10 &&
+    vijandX -200 - spelerX < 10 &&
+    spelerY - vijandY1 >0) { // checkt of de speler binnen de hoogte van de vijand is
+    spelStatus = GAMEOVER;
+  }
+    if (vijandX -400 - spelerX > -10 &&
+    vijandX-400 - spelerX < 10 &&
+    spelerY - vijandY2 >0) { // checkt of de speler binnen de hoogte van de vijand is
+    spelStatus = GAMEOVER;
+  }
+    if (vijandX -600 - spelerX > -10 &&
+    vijandX-600 - spelerX < 10 &&
+    spelerY - vijandY3 >0) { // checkt of de speler binnen de hoogte van de vijand is
+    spelStatus = GAMEOVER;
+  }
+      if (vijandX -800 - spelerX > -10 &&
+    vijandX-800 - spelerX < 10 &&
+    spelerY - vijandY4 >0
+) { // checkt of de speler binnen de hoogte van de vijand is
     spelStatus = GAMEOVER;
   }
 };
@@ -92,9 +117,13 @@ var tekenAlles = function() {
   image(img, 0, 0, 1500, 750);
   // vijand
   fill('black')
-  rect(vijandX - 0, vijandY0 , 100, 720)
+  rect(vijandX - 0, vijandY0 , 100, 720) 
+  
   rect(vijandX - 200, vijandY1 , 100, 720)
   rect(vijandX - 400, vijandY2 , 100, 720)
+  rect(vijandX - 600, vijandY3 , 100, 720)
+  rect(vijandX - 800, vijandY4 , 100, 720)
+  
   // kogel
   // speler
   fill('blue')
