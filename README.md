@@ -33,7 +33,10 @@ h als balk weg is dan komt er een nieuwe balk
 
 
 
-Hoihoi, Ik heb deze les geen kut gedaan dus sorry.
-Goetjes Rishyan
+stap 1; 
+1. filmpje kijken
+2. arrays plaatsen op 2 plekken
+3. kijken of alles werkt
+4. klaar
 
 test
