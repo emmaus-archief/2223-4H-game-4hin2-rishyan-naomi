@@ -105,9 +105,9 @@ var resetGame = function() {
 };
 
 function preload() {
-  img = loadImage('Achtergrond.png'); 
-  karakter = loadImage('karakter.png');
-  SpelerImg = loadImage('Speler.png');
+  img = loadImage('Illustraties/Achtergrond.png'); 
+  karakter = loadImage('Illustraties/karakter.png');
+  SpelerImg = loadImage('Illustraties/Speler.png');
 }
 
 function setup() {
