@@ -55,6 +55,7 @@ var beweegAlles = function() {
   for (var t = 0; t < vijandY.length; t = t + 1) {
     vijandX[t] = vijandX[t] - vijandSnelheid;
     if (vijandX[t] < -100) {
+      score++;
       vijandX[t] = random(1000, 1500); 
       vijandY[t] = random(100, 400); 
     }
@@ -92,8 +93,8 @@ var tekenAlles = function() {
 
   textSize(30);
   fill('white');
-  text("Jonko vrij: " + score, 20, 40); 
-  highScore == 0 ? console.log("") : text("Jonko vrij: " + highScore, 20, 40); 
+  text("score: " + score, 20, 40); 
+  highScore == 0 ? console.log("") : text("score: " + highScore, 20, 40); 
 };
 
 var resetGame = function() {
@@ -120,7 +121,6 @@ function draw() {
     beweegAlles();
     verwerkBotsing();
     tekenAlles();
-    score++;
   } else if (spelStatus === GAMEOVER) {
     score = 0;
     highScore < score ? highScore = score : console.log("Jonkogepakt")
