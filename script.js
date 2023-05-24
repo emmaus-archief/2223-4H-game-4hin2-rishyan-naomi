@@ -50,7 +50,7 @@ function krijgWillekeurigCijfer(max) {
 // Laat het game bewegen
 var beweegAlles = function() {
   toetsnet = toetsnu; // Zorgen dat er niet ingedrukt kan worden
-  toetsnu = keyIsDown(32); // Speler een richting geven
+  toetsnu = keyIsDown(32) || mouseIsPressed; // Speler een richting geven
   if (toetsnet === false && toetsnu === true) {
     spelerY = spelerY - 70; // Standaard naar beneden
   } else {
