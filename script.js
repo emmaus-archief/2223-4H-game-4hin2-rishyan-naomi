@@ -178,11 +178,11 @@ function draw() {
     }
     score = 0;
     muntenGepakt = 0;
-    textSize(40);
+    textSize(39);
     fill("white");
     textAlign(CENTER, CENTER);
     text(
-      "Snoop Dogg heeft de jonko, Druk enter om opnieuw te gaan",
+      "Snoop Dogg heeft de jonko, Druk op enter of refresh om opnieuw te gaan",
       width / 2,
       height / 2
     );
