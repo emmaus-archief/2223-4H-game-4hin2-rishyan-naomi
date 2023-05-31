@@ -1,1 +1,1 @@
-afbeelding
+SnoopDogg heeft zich aangemeld voor AA. Help SnoopDogg om van Jonko aftekomen
